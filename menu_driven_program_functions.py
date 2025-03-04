@@ -51,7 +51,7 @@ def handle_menu_choice(choice: int) -> bool:
     if choice == 3:
         print("Exiting program. Goodbye!")
         return True  # Terminate the program
-    else:
+    if choice >=4 and choice <=0: 
         print("Invalid choice. Please choose a valid option (1-3).")
         return False  # Continue the program loop
 
