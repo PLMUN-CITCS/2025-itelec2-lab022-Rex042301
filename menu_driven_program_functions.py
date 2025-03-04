@@ -45,10 +45,10 @@ def handle_menu_choice(choice: int) -> bool:
     if choice == 1:
         greet_user()
         return False  # Continue the program loop
-    elif choice == 2:
+    if choice == 2:
         even_odd_checker_action()
         return False  # Continue the program loop
-    elif choice == 3:
+    if choice == 3:
         print("Exiting program. Goodbye!")
         return True  # Terminate the program
     else:
