@@ -1,7 +1,6 @@
 def display_menu() -> None:
     """
     Displays the menu options to the user.
-    No parameters.
     """
     print("\nMenu:")
     print("1. Greet User")
@@ -11,8 +10,7 @@ def display_menu() -> None:
 
 def greet_user() -> None:
     """
-    Greets the user with a welcome message.
-    No parameters.
+    Prints a greeting message to the user.
     """
     print("Hello! Welcome!")
 
@@ -20,57 +18,53 @@ def greet_user() -> None:
 def even_odd_checker_action() -> None:
     """
     Prompts the user to enter an integer and checks if it is even or odd.
-    No parameters.
     """
     try:
-        number = int(input("Enter an integer: "))
-        if number % 2 == 0:
-            print(f"{number} is an Even number.")
+        num = int(input("Enter an integer: "))
+        if num % 2 == 0:
+            print(f"{num} is an Even number.")
         else:
-            print(f"{number} is an Odd number.")
+            print(f"{num} is an Odd number.")
     except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+        print("Invalid input! Please enter a valid integer.")
 
 
 def handle_menu_choice(choice: int) -> bool:
     """
     Executes the corresponding action based on the user's menu choice.
     
-    Args:
-        choice (int): The menu option selected by the user.
+    Parameters:
+    choice (int): The user's menu option (1, 2, or 3).
     
     Returns:
-        bool: True if the program should terminate, False otherwise.
+    bool: True to exit the program, False to continue.
     """
     if choice == 1:
         greet_user()
-        return False  # Continue the program loop
-    if choice == 2:
+    elif choice == 2:
         even_odd_checker_action()
-        return False  # Continue the program loop
-    if choice == 3:
+    elif choice == 3:
         print("Exiting program. Goodbye!")
-        return True  # Terminate the program
-    if choice >=4 and choice <=0: 
-        print("Invalid choice. Please choose a valid option (1-3).")
-        return False  # Continue the program loop
+        return True  # Signal to exit the loop
+    else:
+        print("Invalid choice, please try again.")
+    return False  # Continue the loop
 
 
 def main() -> None:
     """
-    Main function to run the menu-driven program.
-    Uses a loop to continuously display the menu and process user choices.
+    Main function to drive the menu-driven program.
+    Continuously displays the menu and processes user choices.
     """
     while True:
-        display_menu()  # Show the menu
+        display_menu()
         try:
-            choice = int(input("Enter your choice (1-3): "))  # Get user input for menu choice
-            if handle_menu_choice(choice):  # If the choice leads to program exit
-                break  # Exit the loop and terminate the program
+            choice = int(input("Enter your choice (1-3): "))
+            if handle_menu_choice(choice):
+                break
         except ValueError:
-            print("Invalid input. Please enter a valid number between 1 and 3.")
+            print("Invalid input! Please enter a number between 1 and 3.")
 
 
-# Start the program
 if __name__ == "__main__":
     main()
